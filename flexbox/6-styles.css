@@ -199,7 +199,7 @@ template {
 /* Variables
    ============================= */
 
- :root {
+:root {
     --color-primary: #D73953;
     --color-black: #090909;
     --color-white: #ffffff;
@@ -238,11 +238,6 @@ template {
     --section-footer-align: center;
     /** HEADER **/
     --header-padding: 4rem 0 0;
-    /* --header-logo-position: relative;
-    --header-logo-link-display: inline-block;
-    --header-logo-link-position: absolute;
-    --header-logo-link-top: -1rem;
-    --header-logo-link-left: 0; */
     /** FOOTER **/
     --footer-padding: 5rem 0 1rem;
     /** NAVBAR **/
@@ -365,18 +360,17 @@ a:active {
 /* Grid
       ============================= */
 
+ul.row {
+    margin: -1rem;
+    padding: 0;
+    list-style: none;
+}
+
 .row {
     display: flex;
 }
 
-.row::after {
-    content: '';
-    display: table;
-    clear: both;
-}
-
 [class*='col-'] {
-    padding: 0;
     margin: 1rem;
 }
 
@@ -388,25 +382,20 @@ a:active {
     width: calc((100% / 2) - 2rem);
 }
 
-ul.row {
-    margin: -1rem;
-}
-
 
 /* Navbar
       ============================= */
 
-
-/* .navbar-menu {
-    float: right;
-  } */
-
 .nav {
-    display: flex;
     margin: 0;
     padding: 0;
     list-style: none;
     text-align: center;
+    display: flex;
+}
+
+.nav .nav-item+.nav-item {
+    margin: var(--nav-item-margin);
 }
 
 .nav .nav-item {
@@ -414,8 +403,6 @@ ul.row {
     font-weight: var(--nav-item-font-weight);
     font-size: var(--nav-item-font-size);
     letter-spacing: var(--nav-item-letter-spacing);
-    display: var(--nav-item-display);
-    /* margin: var(--nav-item-margin); */
 }
 
 .nav .nav-link {
@@ -445,37 +432,20 @@ ul.row {
     width: 100%;
 }
 
-.nav .nav-item+.nav-item {
-    margin: 0 0 0 2rem;
-    /* Move margin declaration to the new selector */
-}
-
 
 /* Header
       ============================= */
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
 
 .header {
     padding: var(--header-padding);
     position: relative;
     z-index: 3;
     background: transparent;
-}
-
-
-/* .header-logo {
-    position: var(--header-logo-position);
-  }
-  
-  .header-logo a {
-    display: var(--header-logo-link-display);
-    position: var(--header-logo-link-position);
-    top: var(--header-logo-link-top);
-    left: var(--header-logo-link-left);
-  } */
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
 }
 
 
@@ -582,7 +552,21 @@ ul.row {
 }
 
 
+/* Section SERVICES ======================== */
+
+.section-services .row {
+    flex-wrap: wrap;
+}
+
+
 /*** 4. CARD ***/
+
+
+/* Section Latest news ================== */
+
+.section-latest-news .row {
+    flex-direction: row-reverse;
+}
 
 
 /* Card (all styles)
@@ -712,21 +696,4 @@ ul.row {
     color: #efeded;
     font-size: 10rem;
     z-index: -1;
-}
-
-
-/*** 4. CARD ***/
-
-
-/* Section Latest news ============================= */
-
-.section-latest-news .row {
-    flex-direction: row-reverse;
-}
-
-
-/* Section SERVICES ============================= */
-
-.section-services .row {
-    flex-wrap: wrap;
 }
